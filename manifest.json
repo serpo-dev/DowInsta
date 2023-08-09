@@ -1,0 +1,35 @@
+{
+    "name": "DowInsta",
+    "version": "1.0.0",
+    "description": "Download Posts, Stories, Highlits, Reels, TV from Instagram in high resolution. Supports downloading of videos and images.",
+    "manifest_version": 3,
+    "host_permissions": ["https://www.instagram.com/*"],
+    "icons": {
+        "16": "assets/16.png",
+        "32": "assets/32.png",
+        "48": "assets/48.png",
+        "128": "assets/128.png"
+    },
+    "type": "module",
+    "action": {
+        "default_icon": "assets/128.png"
+    },
+    "permissions": ["tabs", "http://*/*", "https://*/*"],
+    "content_scripts": [
+        {
+            "matches": ["https://www.instagram.com/*"],
+            "js": [
+                "src/download/button-constructor.js",
+                "src/download/download-by-url.js",
+                "src/items/post-image.js",
+                "src/items/post-video.js",
+                "src/items/story-image.js",
+                "src/items/story-video.js",
+                "src/utils/get-file-name.js",
+                "src/utils/get-info.js",
+                "src/watchers/watchers.js",
+                "src/main.js"
+            ]
+        }
+    ]
+}
